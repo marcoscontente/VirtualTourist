@@ -13,6 +13,9 @@
 		8D130F202224D353009542DA /* VirtualTourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D130F1E2224D353009542DA /* VirtualTourist.xcdatamodeld */; };
 		8D130F222224D354009542DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D130F212224D354009542DA /* Assets.xcassets */; };
 		8D130F252224D354009542DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D130F232224D354009542DA /* LaunchScreen.storyboard */; };
+		8D130F322224D7DC009542DA /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D130F312224D7DC009542DA /* ApiClient.swift */; };
+		8D130F342224D819009542DA /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D130F332224D819009542DA /* ApiConstants.swift */; };
+		8D130F362224D828009542DA /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D130F352224D828009542DA /* ApiServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		8D130F212224D354009542DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D130F242224D354009542DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D130F262224D354009542DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D130F312224D7DC009542DA /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		8D130F332224D819009542DA /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
+		8D130F352224D828009542DA /* ApiServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,9 @@
 		8D130F302224D3EF009542DA /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				8D130F312224D7DC009542DA /* ApiClient.swift */,
+				8D130F352224D828009542DA /* ApiServices.swift */,
+				8D130F332224D819009542DA /* ApiConstants.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -178,9 +187,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D130F362224D828009542DA /* ApiServices.swift in Sources */,
 				8D130F1A2224D353009542DA /* ViewController.swift in Sources */,
 				8D130F182224D353009542DA /* AppDelegate.swift in Sources */,
+				8D130F342224D819009542DA /* ApiConstants.swift in Sources */,
 				8D130F202224D353009542DA /* VirtualTourist.xcdatamodeld in Sources */,
+				8D130F322224D7DC009542DA /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
