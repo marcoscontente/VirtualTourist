@@ -91,11 +91,8 @@ class ApiServices {
     }
     
     // MARK: getMethod
-    func getMethod(
-        _ method : String? = nil,
-        _ customUrl : URL? = nil,
-        parameters : [String: String],
-        completionHandlerForGET: @escaping (_ result: Data?, _ error: NSError?) -> Void) -> URLSessionDataTask {
+    func getMethod(_ method : String? = nil, _ customUrl : URL? = nil, parameters : [String: String],
+                   completionHandlerForGET: @escaping (_ result: Data?, _ error: NSError?) -> Void) -> URLSessionDataTask {
         
         let request: NSMutableURLRequest!
         if let customUrl = customUrl {
@@ -116,7 +113,6 @@ class ApiServices {
             }
             
             if let error = error {
-                
                 if (error as NSError).code == URLError.cancelled.rawValue {
                     completionHandlerForGET(nil, nil)
                 } else {
@@ -137,11 +133,8 @@ class ApiServices {
             
             self.showActivityIndicator(false)
             completionHandlerForGET(data, nil)
-            
         }
-        
         task.resume()
-        
         return task
     }
     

@@ -1,5 +1,5 @@
 //
-//  ImageCell.swift
+//  ImageViewCell.swift
 //  VirtualTourist
 //
 //  Created by Marcos Vinicius Goncalves Contente on 27/02/19.

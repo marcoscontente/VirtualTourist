@@ -37,7 +37,7 @@ extension ApiServices {
         }
         
         struct FlickrParameterValues {
-            static let APIKey = "c96781c921ad3d7edb0dfaad4641a69a"
+            static let APIKey = "d8f1c926d8f9f35412e309df288d33ba"
             static let MediumURL = "url_m"
             static let SearchMethod = "flickr.photos.search"
             static let UseSafeSearch = "1"

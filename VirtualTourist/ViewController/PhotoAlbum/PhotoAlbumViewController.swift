@@ -94,25 +94,23 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate {
         
         startCollectionSpinner()
         
-        ApiServices.shared().displayImageFromFlickrBySearch(latitude: latitude, longitude: longitude, totalPages: totalOfPages) { (photosParsed, error) in
-            self.performUIUpdatesOnMain {
-                
-                self.stopCollectionSpinner()
-                
-            }
-            if let photosParsed = photosParsed {
-                
-                self.totalOfPages = photosParsed.photos.pages
-                let totalOfPhotos = photosParsed.photos.photo.count
-                self.storePhotos(photosParsed.photos.photo, forPin: pin)
-                if totalOfPhotos == 0 {
-                    self.updateStatusLabel("No photos available in this location")
-                    
+        ApiServices.shared()
+            .displayImageFromFlickrBySearch(latitude: latitude, longitude: longitude, totalPages: totalOfPages) {
+                (photosParsed, error) in
+                self.performUIUpdatesOnMain {
+                    self.stopCollectionSpinner()
                 }
-            } else if let error = error {
-                self.showInfo(withTitle: "ERROR", withMessage: error.localizedDescription)
-                self.updateStatusLabel("Error occured, please try again")
-            }
+                if let photoParsed = photosParsed {
+                    self.totalOfPages = photoParsed.photos.pages
+                    let totalOfPhotos = photoParsed.photos.photo.count
+                    self.storePhotos(photoParsed.photos.photo, forPin: pin)
+                    if totalOfPhotos == 0 {
+                        self.updateStatusLabel("No photos available in this location")
+                    }
+                } else if let error = error {
+                    self.showInfo(withTitle: "ERROR", withMessage: error.localizedDescription)
+                    self.updateStatusLabel("Error occured, please try again")
+                }
         }
     }
     
@@ -281,7 +279,7 @@ extension PhotoAlbumViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageViewCell", for: indexPath) as! ImageViewCell
         cell.imageViewCell.image = nil
         
         startCellSpinner(using: cell)
@@ -291,9 +289,9 @@ extension PhotoAlbumViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let image = fetchedResultsController.object(at: indexPath)
-        let imageCell = cell as! ImageViewCell
-        imageCell.imageUrl = image.imageUrl!
-        configImage(use: imageCell, toAdd: image, as: collectionView, index: indexPath)
+        let ImageViewCell = cell as! ImageViewCell
+        ImageViewCell.imageUrl = image.imageUrl!
+        configImage(use: ImageViewCell, toAdd: image, as: collectionView, index: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

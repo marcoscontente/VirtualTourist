@@ -134,7 +134,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="DWA-c2-SIZ" customClass="ImageViewCell" customModule="VirtualTourist" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageViewCell" id="DWA-c2-SIZ" customClass="ImageViewCell" customModule="VirtualTourist" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="89"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -158,11 +158,15 @@
                                                     <constraint firstItem="O1m-r3-f87" firstAttribute="leading" secondItem="DWA-c2-SIZ" secondAttribute="leading" id="ony-sE-m94"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="imageActivityIndicator" destination="P08-Js-2In" id="bw0-6K-qli"/>
-                                                    <outlet property="imageViewCell" destination="O1m-r3-f87" id="Z4q-xq-maH"/>
+                                                    <outlet property="imageActivityIndicator" destination="P08-Js-2In" id="FZz-4g-B2d"/>
+                                                    <outlet property="imageViewCell" destination="O1m-r3-f87" id="bL1-zL-ndb"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="9cO-6T-mJ3" id="zOd-53-Ec9"/>
+                                            <outlet property="delegate" destination="9cO-6T-mJ3" id="6OC-Vf-V7a"/>
+                                        </connections>
                                     </collectionView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VEs-ki-sq8">
                                         <rect key="frame" x="165.5" y="174" width="44" height="44"/>
