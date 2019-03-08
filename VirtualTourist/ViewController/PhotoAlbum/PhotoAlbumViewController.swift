@@ -94,8 +94,7 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate {
         
         startCollectionSpinner()
         
-        ApiServices.shared()
-            .displayImageFromFlickrBySearch(latitude: latitude, longitude: longitude, totalPages: totalOfPages) {
+        ApiServices.shared.displayImageFromFlickrBySearch(latitude: latitude, longitude: longitude, totalPages: totalOfPages) {
                 (photosParsed, error) in
                 self.performUIUpdatesOnMain {
                     self.stopCollectionSpinner()
@@ -183,10 +182,8 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate {
     func updateBottomButton() {
         if selectedIndexes.count > 0 {
             newCollectionButton.setTitle("Click to Delete Pins", for: .normal)
-            newCollectionButton.setTitleColor(.white , for: .normal)
         } else {
             newCollectionButton.setTitle("More Collections", for: .normal)
-            newCollectionButton.setTitleColor(.white , for: .normal)
         }
     }
 }
@@ -289,9 +286,9 @@ extension PhotoAlbumViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let image = fetchedResultsController.object(at: indexPath)
-        let ImageViewCell = cell as! ImageViewCell
-        ImageViewCell.imageUrl = image.imageUrl!
-        configImage(use: ImageViewCell, toAdd: image, as: collectionView, index: indexPath)
+        let imageViewCell = cell as! ImageViewCell
+        imageViewCell.imageUrl = image.imageUrl!
+        configImage(use: imageViewCell, toAdd: image, as: collectionView, index: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -308,7 +305,7 @@ extension PhotoAlbumViewController: UICollectionViewDataSource, UICollectionView
         
         let image = fetchedResultsController.object(at: forItemAt)
         if let imageUrl = image.imageUrl {
-            ApiServices.shared().cancelDownload(imageUrl)
+            ApiServices.shared.cancelDownload(imageUrl)
         }
     }
     
@@ -325,7 +322,7 @@ extension PhotoAlbumViewController: UICollectionViewDataSource, UICollectionView
                 
                 startCellSpinner(using: cell)
                 
-                ApiServices.shared().downloadImage(imageUrl: imageUrl) { (data, error) in
+                ApiServices.shared.downloadImage(imageUrl: imageUrl) { (data, error) in
                     if let _ = error {
                         self.performUIUpdatesOnMain {
                             

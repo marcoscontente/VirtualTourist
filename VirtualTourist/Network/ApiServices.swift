@@ -15,12 +15,7 @@ class ApiServices {
     private var tasks: [String: URLSessionDataTask] = [:]
     
     //MARK: Singleton
-    class func shared() -> ApiServices {
-        struct Singleton {
-            static var shared = ApiServices()
-        }
-        return Singleton.shared
-    }
+    static let shared = ApiServices()
 
     func displayImageFromFlickrBySearch(latitude: Double, longitude: Double, totalPages: Int?, completion: @escaping (_ result: FlickrPhotos?, _ error: Error?) -> Void) {
         
